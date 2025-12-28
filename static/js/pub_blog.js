@@ -34,15 +34,15 @@ window.onload = function () {
         let category = $("#category-select").val();
         let content = editor.getHtml();
         let csrfmiddlewaretoken = $("input[name='csrfmiddlewaretoken']").val();
-        $.ajax('/blog/pub', {
+        $.ajax('/blog/pub_blog', {
             method: 'POST',
             data: {title, category, content, csrfmiddlewaretoken},
             success: function(result){
                 if(result['code'] == 200){
                     // 获取博客id
-                    let blog_id = result['data']['blog_id']
+                    let blog_id = result['context']['blog_id']
                     // 跳转到博客详情页面
-                    window.location = '/blog/detail/' + blog_id
+                    window.location = '/blog/blog_detail/' + blog_id
                 }else{
                     alert(result['message']);
                 }

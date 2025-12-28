@@ -142,3 +142,4 @@ DEFAULT_FROM_EMAIL = '2502124897@qq.com'
 
 
 # LOGIN_URL = '/user/login'
+LOGIN_URL = 'user:login'

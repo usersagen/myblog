@@ -14,7 +14,7 @@ from django.contrib.auth.decorators import login_required
 
 User = get_user_model()
 
-@login_required(login_url='login')
+@login_required
 def index(request):
     return HttpResponse("登录成功")
 
@@ -40,14 +40,15 @@ def login(request):
                 auth.login(request, user)
                 if not remember:
                     request.session.set_expiry(0)
-                messages.success(request, '登录成功')
-                next_url = request.GET.get('next') or 'user:index'   # 预留接口 登录成功要跳转的页面
+                messages.success(request, f'{username}登录成功')
+                next_url = request.GET.get('next') or 'blog:index'   # 预留接口 登录成功要跳转的页面
                 return redirect(next_url)
             else:
                 messages.error(request, '用户名或密码错误')
     return render(request, 'login.html', {"form": form})
 
 # 退出账号
+@login_required
 def logout(request):
     username = request.user.username
     auth.logout(request)

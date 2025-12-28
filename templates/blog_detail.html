@@ -9,7 +9,7 @@
 	<h1>{{ blog.title }}</h1>
     <hr>
     <div class="mt-2">
-        <img src="{% static 'image/avatar.webp' %}" class="rounded-circle" width="30" height="30" alt="">
+        <img src="{% static 'image/head_portrait.svg' %}" class="rounded-circle" width="30" height="30" alt="">
         <span class="ms-2">{{ blog.author.username }}</span>
         <span class="ms-2">于</span>
         <span class="ms-2">{{ blog.pub_time|date:"Y年m月d日 h时i分" }}</span>发布
@@ -38,7 +38,7 @@
                 <li class="list-group-item">
                   <div class="d-flex justify-content-between text-body-secondary">
                       <div class="user-info">
-                          <img src="{% static 'image/avatar.webp' %}" class="rounded-circle" width="40" height="40" alt="">
+                          <img src="{% static 'image/head_portrait.svg' %}" class="rounded-circle" width="40" height="40" alt="">
                           <span class="ms-2">{{ comment.author.username }}</span>
                       </div>
                       <div class="create-time" style="line-height: 40px;">{{ comment.pub_time|date:"Y年m月d日 h时i分" }}</div>
